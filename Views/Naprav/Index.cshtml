@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Lab7WebApi.Models.Naprav>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Naprav)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Pacients)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Procedure)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Naprav)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Pacients)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Procedure)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Naprav }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Naprav }, new { onclick = "return confirm('Видалити ці дані?')" })
+    </td>
+</tr>
+}
+
+</table>

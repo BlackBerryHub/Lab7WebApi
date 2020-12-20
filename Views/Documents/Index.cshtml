@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Lab7WebApi.Models.Documents>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Documents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Equipment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Procedure)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Documents)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Equipment)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_Procedure)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Documents }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Documents }, new { onclick = "return confirm('Видалити ці дані?')"})
+    </td>
+</tr>
+}
+
+</table>
